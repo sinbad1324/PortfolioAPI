@@ -1,0 +1,17 @@
+{
+  "name": "protfolioapi",
+  "version": "1.0.0",
+  "description": "api nodejs for my portfolio",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "index.js"
+  },
+  "author": "SinDev",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "postmark": "^4.0.5"
+  }
+}
