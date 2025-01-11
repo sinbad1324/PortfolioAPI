@@ -1,12 +1,12 @@
-import authData from "./../secret/authMail.json" assert { type: "json" };
+import fs from 'fs';
+const authData = JSON.parse(fs.readFileSync(new URL('./../secret/authMail.json', import.meta.url)));
 // import postmark from "postmark";
-
 import postmark from "postmark";
 
 const sendEmail = async (data) => {
   try {
     const client = new postmark.ServerClient(authData.APIKey);
-    client.sendEmail({
+    const response = client.sendEmail({
       From: authData.mail,
       To: authData.mail,
 
@@ -25,7 +25,7 @@ const sendEmail = async (data) => {
       TextBody: "",
       MessageStream: "outbound",
     });
-    return true;
+    return response;
   } catch (error) {
     console.error("Erreur lors de l’envoi de l’email:", error.message);
   }
